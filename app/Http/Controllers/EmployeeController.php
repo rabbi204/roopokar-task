@@ -20,18 +20,6 @@ class EmployeeController extends Controller
         $all_education =  EmployeeEducation::where('employee_id', $id) -> get();
         $all_experience =  EmployeeExperience::where('employee_id', $id) -> get();
 
-        // dd($all_experience);
-
-        // $employee =  Employee::find($id);
-        //    $all_data = DB::table('employees')
-        //         ->join('employee_education','employees.id','employee_education.employee_id')
-        //         ->join('employee_experiences','employees.id','employee_experiences.employee_id')
-        //         ->select('employee_education.*', 'employee_experiences.*','employees.*')
-        //         ->select('employee_education.*','employees.*')
-        //         ->orderBy('employees.id','DESC')->get();
-
-    //    return view('backend.employee.employee_profile', compact('employee','all_data'));
-
        return view('backend.employee.employee_profile', compact('employee','all_education','all_experience'));
     }
     /**
