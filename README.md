@@ -20,4 +20,4 @@ For Registration Route: http://127.0.0.1:8000/registar
 Login Email and Password: 
 
 Email: user@gmail.com
-password: rabbi204
+Password: rabbi204
