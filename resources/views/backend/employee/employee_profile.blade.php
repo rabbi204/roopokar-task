@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="card col-md-10">
                 <div class="card-body">
-                    <h5 class="card-title text-uppercase">Hi <strong class="badge badge-primary">{{ $employee -> name }}</strong></h5>
+                    <h5 class="card-title text-uppercase">Hi...... <strong class="badge badge-primary">{{ $employee -> name }}</strong></h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Employee Name: <strong>{{ $employee -> name }}</strong></li>
