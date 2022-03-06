@@ -2,7 +2,7 @@
 
 ## This project feature
 
-This project is created using laravel and ajax.
+This project is created using laravel and ajax. Also I use MySQL for database.
 
 - Laravel Default Authentication.
 - All Employee with profile.
