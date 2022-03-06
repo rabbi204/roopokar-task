@@ -3,7 +3,7 @@
         <i class="fa fa-bars"></i>
     </button>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown no-arrow">
+        {{-- <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
             </a>
@@ -19,8 +19,8 @@
                     </div>
                 </form>
             </div>
-        </li>
-        <li class="nav-item dropdown no-arrow mx-1">
+        </li> --}}
+        {{-- <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <span class="badge badge-danger badge-counter">3+</span>
@@ -64,8 +64,8 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
             </div>
-        </li>
-        <li class="nav-item dropdown no-arrow mx-1">
+        </li> --}}
+        {{-- <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <span class="badge badge-warning badge-counter">2</span>
@@ -96,8 +96,9 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
             </div>
-        </li>
-        <li class="nav-item dropdown no-arrow mx-1">
+        </li> --}}
+
+        {{-- <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-tasks fa-fw"></i>
                 <span class="badge badge-success badge-counter">3</span>
@@ -141,12 +142,12 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">View All Taks</a>
             </div>
-        </li>
+        </li> --}}
         <div class="topbar-divider d-none d-sm-block"></div>
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="img-profile rounded-circle" src="{{ asset('backend/img/boy.png') }}" style="max-width: 60px;" />
-                <span class="ml-2 d-none d-lg-inline text-white small">Maman Ketoprak</span>
+                <span class="ml-2 d-none d-lg-inline text-white small">{{ Auth::user() -> name }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
@@ -162,10 +163,13 @@
                     Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="login.html">
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
                 </a>
+                <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                    @csrf
+                </form>
             </div>
         </li>
     </ul>

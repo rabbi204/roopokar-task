@@ -1,38 +1,58 @@
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
         <div class="sidebar-brand-icon">
             <img src="{{ asset('backend/img/logo/logo2.png') }}" />
         </div>
-        <div class="sidebar-brand-text mx-3">RuangAdmin</div>
+        <div class="sidebar-brand-text mx-3">Roopokar</div>
     </a>
     <hr class="sidebar-divider my-0" />
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
     </li>
     <hr class="sidebar-divider" />
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap" aria-expanded="true" aria-controls="collapseBootstrap">
             <i class="far fa-fw fa-window-maximize"></i>
             <span>Employee</span>
         </a>
         <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('employee.index') }}">Add Employee</a>
-                <a class="collapse-item" href="alerts.html">All Employee</a>
+                <a class="collapse-item" href="{{ route('employee.index') }}">Employee</a>
             </div>
         </div>
-    </li>
+    </li> --}}
     <li class="nav-item">
-        <a class="nav-link" href="forms.html">
+        <a class="nav-link" href="{{ route('employee.index') }}">
             <i class="fab fa-fw fa-wpforms"></i>
-            <span>Forms</span>
+            <span>Employee</span>
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('employee.education.index') }}">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Employee Education</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('employee.experience.index') }}">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Employee Experience</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+
+
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span>
@@ -75,7 +95,7 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span>
         </a>
-    </li>
-    <hr class="sidebar-divider" />
-    <div class="version" id="version-ruangadmin"></div>
+    </li> --}}
+    {{-- <hr class="sidebar-divider" />
+    <div class="version" id="version-ruangadmin"></div> --}}
 </ul>

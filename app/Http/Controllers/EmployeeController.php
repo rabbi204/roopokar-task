@@ -3,11 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\EmployeeEducation;
+use App\Models\EmployeeExperience;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Empty_;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
+    /**
+     *  employee profile page show
+     */
+    public function employeeProfile($id)
+    {
+        $employee =  Employee::where('id', $id) -> first();
+        $all_education =  EmployeeEducation::where('employee_id', $id) -> get();
+        $all_experience =  EmployeeExperience::where('employee_id', $id) -> get();
+
+        // dd($all_experience);
+
+        // $employee =  Employee::find($id);
+        //    $all_data = DB::table('employees')
+        //         ->join('employee_education','employees.id','employee_education.employee_id')
+        //         ->join('employee_experiences','employees.id','employee_experiences.employee_id')
+        //         ->select('employee_education.*', 'employee_experiences.*','employees.*')
+        //         ->select('employee_education.*','employees.*')
+        //         ->orderBy('employees.id','DESC')->get();
+
+    //    return view('backend.employee.employee_profile', compact('employee','all_data'));
+
+       return view('backend.employee.employee_profile', compact('employee','all_education','all_experience'));
+    }
     /**
      *  show emloyee page
      */
@@ -36,23 +62,23 @@ class EmployeeController extends Controller
      */
     public function allEmployee()
     {
-        $data = Employee::all();
+        $all_data = Employee::all();
 
-        $i = 1;
-        foreach($data as $d){
+        // $i = 1;
+        foreach($all_data as $data){
 
             ?>
                     <tr>
-                        <th><?php echo $i; $i++ ?></th>
-                        <td><?php echo $d -> roll ?></td>
-                        <td><?php echo $d -> name ?></td>
-                        <td><?php echo $d -> email ?></td>
-                        <td><?php echo $d -> phone ?></td>
-                        <td><?php echo $d -> designation ?></td>
-                        <td><?php echo $d -> department ?></td>
+                        <th><?php echo $data -> id ?></th>
+                        <td><?php echo $data -> roll ?></td>
+                        <td><?php echo $data -> name ?></td>
+                        <td><?php echo $data -> email ?></td>
+                        <td><?php echo $data -> phone ?></td>
+                        <td><?php echo $data -> designation ?></td>
+                        <td><?php echo $data -> department ?></td>
                         <td>
-                            <a id="edit_employee" employee_id="<?php echo $d -> id ?>" href="#edit_employee_modal" data-toggle="modal" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="#" id="delete_employee" emp_id="<?php echo $d -> id ?>" class="btn btn-danger btn-sm">Delete</a>
+                            <a id="edit_employee" employee_id="<?php echo $data -> id ?>" href="#edit_employee_modal" data-toggle="modal" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="#" id="delete_employee" emp_id="<?php echo $data -> id ?>" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
 
